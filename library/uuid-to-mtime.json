@@ -275,28 +275,33 @@
     "relativePath": "Texture/HelloWorld.png"
   },
   "863c4812-7556-43d5-afe9-d9d0ad4dc990": {
-    "asset": 1551427396966,
-    "meta": 1551427396979,
-    "relativePath": "Scene/main.fire"
-  },
-  "3a8d7b90-79ab-4ee9-bf3f-ce22dadad600": {
-    "asset": 1551346920338,
-    "meta": 1551346920427,
-    "relativePath": "Script/Opcodes.js"
-  },
-  "f2c5add4-3b76-4091-b8f8-7731a2cc02e3": {
-    "asset": 1551504820601,
-    "meta": 1551505043125,
-    "relativePath": "Script/Network.js"
+    "asset": 1551535595015,
+    "meta": 1551535595030,
+    "relativePath": "Scene/Main.fire"
   },
   "1a94ff95-6858-4754-9165-f50db17748fc": {
-    "asset": 1551505312535,
-    "meta": 1551505471228,
+    "asset": 1551525649960,
+    "meta": 1551525666914,
     "relativePath": "Script/GCore.js"
   },
   "280c3aec-6492-4a9d-9f51-a9b00b570b4a": {
-    "asset": 1551505660701,
-    "meta": 1551505662740,
+    "asset": 1551525372281,
+    "meta": 1551525666957,
     "relativePath": "Script/GMain.js"
+  },
+  "f2c5add4-3b76-4091-b8f8-7731a2cc02e3": {
+    "asset": 1551525638889,
+    "meta": 1551525666981,
+    "relativePath": "Script/Network.js"
+  },
+  "3a8d7b90-79ab-4ee9-bf3f-ce22dadad600": {
+    "asset": 1551525386284,
+    "meta": 1551525666982,
+    "relativePath": "Script/Opcodes.js"
+  },
+  "20967e20-ceb8-4806-999f-4d6739a9e23d": {
+    "asset": 1551526017033,
+    "meta": 1551526035728,
+    "relativePath": "Scene/MinMap.fire"
   }
 }

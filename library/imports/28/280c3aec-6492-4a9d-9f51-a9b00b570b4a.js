@@ -8,6 +8,8 @@ var _Network = require('./Network');
 
 var _GCore = require('./GCore');
 
+var _Opcodes = require('./Opcodes');
+
 cc.Class({
     extends: cc.Component,
 
@@ -73,14 +75,13 @@ cc.Class({
                         label.fontSize = 24;
                         //labelNode.color = btnTitleColor;
 
-                        label.string = "xxxx";
+                        label.string = "connected";
                     }
                 }
             }, target: this };
 
-        _Network.XNet.ListenerAdd("XNetOpened", this.myListener1);
+        _Network.XNet.ListenerAdd(_Opcodes.xx_opcodes.XC_NET_CONNECTED, this.myListener1);
         //XNet.ListenerAdd("XNetOpened",{callback:this.myListener1,target:this});
-
         // this.labNetState.string=XGame.dsid;
     },
 

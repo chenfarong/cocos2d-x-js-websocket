@@ -1,7 +1,7 @@
 
 import {XNet} from './Network';
 import {XGame} from './GCore';
-
+import {xx_errid,xx_opcodes} from './Opcodes';
 
 cc.Class({
     extends: cc.Component,
@@ -72,16 +72,15 @@ cc.Class({
                         label.fontSize = 24;
                         //labelNode.color = btnTitleColor;
                        
-                        label.string = "xxxx";
+                        label.string = "connected";
                         
                     }
             }
             
         },target:this};
 
-        XNet.ListenerAdd("XNetOpened",this.myListener1);
+        XNet.ListenerAdd(xx_opcodes.XC_NET_CONNECTED,this.myListener1);
         //XNet.ListenerAdd("XNetOpened",{callback:this.myListener1,target:this});
-
        // this.labNetState.string=XGame.dsid;
 
     },

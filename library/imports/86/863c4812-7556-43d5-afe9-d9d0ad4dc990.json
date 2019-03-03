@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.SceneAsset",
-    "_name": "main",
+    "_name": "Main",
     "_objFlags": 0,
     "_native": "",
     "scene": {
@@ -42,9 +42,9 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.6077962239583333,
-      "y": 0.6077962239583333,
-      "z": 0.6077962239583333
+      "x": 0.5862141927083333,
+      "y": 0.5862141927083333,
+      "z": 0.5862141927083333
     },
     "_quat": {
       "__type__": "cc.Quat",
@@ -961,7 +961,7 @@
       "b": 187,
       "a": 255
     },
-    "_N$maxLength": 8,
+    "_N$maxLength": 200,
     "_N$stayOnTop": false,
     "_id": "capPC8yAlImYIuPg4TYhLv"
   },
@@ -1057,13 +1057,13 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -99,
-      "y": 129,
+      "x": -167,
+      "y": 170,
       "z": 0
     },
     "_scale": {
@@ -1149,8 +1149,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -67,
-      "y": -179,
+      "x": -108,
+      "y": -73,
       "z": 0
     },
     "_scale": {

@@ -7,13 +7,17 @@ cc._RF.push(module, 'f2c5a3UO3ZAkbj4dzGizALj', 'Network');
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.XNet = undefined;
+
+var _Opcodes = require("./Opcodes");
+
 var WebSocket = WebSocket || window.WebSocket || window.MozWebSocket;
 
 var XNet = cc.Class({
     extends: cc.Component,
     statics: {
         _socket: {},
-        ws_host: "ws://192.168.1.40:8086/game",
+        ws_host: "ws://test.9966886699.com:8086/game",
         _netPros: new Map(),
 
         dispatchXNet: function dispatchXNet(event, msg) {
@@ -31,22 +35,44 @@ var XNet = cc.Class({
 
                 this._socket = new WebSocket(this.ws_host);
                 this._socket.onopen = this._onOpen.bind(this);
+                this._socket.onerror = this._onError.bind(this);
+                this._socket.onclose = this._onClose.bind(this);
+                this._socket.onmessage = this._onMessage.bind(this);
             }
             return this;
         },
 
-        _onOpen: function _onOpen(evt) {
+        _onOpen: function _onOpen(event) {
             console.log("connected " + this.ws_host);
             //utils.OutObj(evt);
             //var event = new cc.Event(this,"Network",true);
             //event.setUserData("{...}");
             //cc.eventTarget.dispatchEvent(event);
             // cc.EventTarget.dispatchEvent("adas","123",evt); 
-            cc.eventManager.dispatchCustomEvent("XNetOpened", { a: 1, b: 2 });
+
+            //
+            //cc.eventManager.dispatchCustomEvent("XNetOpened", {a:1,b:2});
+
 
             //var event=new cc.EventCustom("XNetOpened");
             //cc.SystemEvent.dispatchCustomEvent(event);
-            XNet.dispatchXNet("XNetOpened", 1);
+            XNet.dispatchXNet(_Opcodes.xx_opcodes.XC_NET_CONNECTED, { cmd: _Opcodes.xx_opcodes.XC_NET_CONNECTED, rc: 0 });
+        },
+
+        _onError: function _onError(event) {
+            console.error("WebSocket error observed:", event);
+        },
+
+        _onClose: function _onClose(event) {
+            console.log("WebSocket is closed now.");
+            XNet.dispatchXNet(_Opcodes.xx_opcodes.XC_NET_DISCONNECTED, { cmd: _Opcodes.xx_opcodes.XC_NET_DISCONNECTED, rc: 0 });
+        },
+
+        _onMessage: function _onMessage(event) {
+            console.debug("WebSocket message received:", event);
+            var str = event.data;
+            var msg = JSON.parse(str);
+            console.log(msg.cmd);
         },
 
         ListenerAdd: function ListenerAdd(event, callback) {
@@ -69,11 +95,6 @@ var XNet = cc.Class({
                     }
                 }
             }
-        },
-        DoRecvCmd: function DoRecvCmd(msg) {
-            _netPros.forEach(function (item, index, array) {
-                console.log(item, index);
-            });
         }
     }
 

@@ -19,9 +19,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var XGame = {
     dsid: "86-xxxxx-demo",
-    token: "",
-    host: "",
-    port: 0
+    token: ""
 };
 
 cc.Class({

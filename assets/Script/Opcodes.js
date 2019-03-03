@@ -14,3 +14,5 @@ var xx_opcodes={
 
 };
 
+export {xx_errid,xx_opcodes};
+

@@ -11,7 +11,9 @@
 var XGame={
     dsid:"86-xxxxx-demo",
     token:"",
-    host:"ws://test.9966886699.com:8086/xgame",
+    auth:false, //是否验证通过
+    actorId:"",
+    power:0,
 };
 
 
