@@ -8,17 +8,20 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _xx_opcodes;
+var xx_opcodes = {
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+    XC_NET_CONNECTED: "XC_NET_CONNECTED", //成功连接
+    XC_NET_CONNECTED_FAILED: "XC_NET_CONNECT_FAILED", //连接失败
+    XC_NET_DISCONNECTED: "XC_NET_DISCONNECTED", //断开连接
+    XC_NET_ERROR: "XC_NET_ERROR", //网络错误
+    XC_NET_CONNECT_TIMEOUT: "XC_NET_CONNECT_TIMEOUT", //连接超时
 
-var xx_errid = {};
+    XC_TOKEN_NEW: "XC_TOKEN_NEW", //获取令牌
+    XC_TOKEN_AUTH: "XC_TOKEN_AUTH", //验证令牌
 
-var xx_opcodes = (_xx_opcodes = {
-    XC_NET_CONNECTED: "XC_NET_CONNECTED"
-}, _defineProperty(_xx_opcodes, "XC_NET_CONNECTED", "XC_NET_CONNECT_FAILED"), _defineProperty(_xx_opcodes, "XC_NET_DISCONNECTED", "XC_NET_DISCONNECTED"), _defineProperty(_xx_opcodes, "XC_TOKEN_NEW", "XC_TOKEN_NEW"), _defineProperty(_xx_opcodes, "XC_TOKEN_AUTH", "XC_TOKEN_AUTH"), _xx_opcodes);
+    SC_SYS_INFO: "GX_SYSINFO_R" //系统消息
+};
 
-exports.xx_errid = xx_errid;
 exports.xx_opcodes = xx_opcodes;
 
 cc._RF.pop();

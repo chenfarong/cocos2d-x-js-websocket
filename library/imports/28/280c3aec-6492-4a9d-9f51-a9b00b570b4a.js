@@ -1,98 +1,70 @@
 "use strict";
-cc._RF.push(module, '280c3rsZJJKnZ9RqbALVwtK', 'GMain');
-// Script/GMain.js
+cc._RF.push(module, '280c3rsZJJKnZ9RqbALVwtK', 'GSession');
+// Script/GSession.js
 
-'use strict';
+"use strict";
 
-var _Network = require('./Network');
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+// Learn cc.Class:
+//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/class.html
+//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/class.html
+// Learn Attribute:
+//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
+//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/reference/attributes.html
+// Learn life-cycle callbacks:
+//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
+//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
-var _GCore = require('./GCore');
 
-var _Opcodes = require('./Opcodes');
+/*
+dsid是auth方式进行验证 通常这种模式是游客模式
+dsid2是auth2方式进行的一种验证
+*/
+var XSession = {
+    dsid: "",
+    token: "",
+    dsid2: "",
+    token2: "",
+    auth: false, //是否验证通过
+    actorId: "",
+    actorName: "",
+    power: 0,
+    gameState: 0 //游戏阶段
+};
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        label: {
-            default: null,
-            type: cc.Label
-        },
-        btnConn: cc.Button,
-        // defaults, set visually when attaching this script to the Canvas
-        text: 'Hello, World!',
-        myListener: cc.EventListener,
-        myListener1: null,
-
-        labNetState: cc.Label
-
+        // foo: {
+        //     // ATTRIBUTES:
+        //     default: null,        // The default value will be used only when the component attaching
+        //                           // to a node for the first time
+        //     type: cc.SpriteFrame, // optional, default is typeof default
+        //     serializable: true,   // optional, default is true
+        // },
+        // bar: {
+        //     get () {
+        //         return this._bar;
+        //     },
+        //     set (value) {
+        //         this._bar = value;
+        //     }
+        // },
     },
 
-    // use this for initialization
-    onLoad: function onLoad() {
-        this.label.string = this.text;
+    // LIFE-CYCLE CALLBACKS:
 
-        this.myListener = cc.EventListener.create({
-            event: cc.EventListener.CUSTOM,
-            target: this,
-            eventName: "XNetOpened", //最好参考cocos将此参数定义为一个常量
-            callback: function callback(event) {
+    // onLoad () {},
 
-                //获取Bear实例对象
-                //var target = event.getUserData();
+    start: function start() {}
+}
 
-                //方法调用
-                //target.bearJump();
-                //target.bearEat();
-                //target._labNetState.string="connected";
-                console.log("xxxxxxxxx");
-            }
-        });
-        cc.eventManager.addListener(this.myListener, 1);
+// update (dt) {},
+);
 
-        var labNode = this.node.getChildByName('labNetState');
-        labNode.color = new cc.color(255, 255, 0, 255);
-        var labNode2 = labNode.getComponent(cc.Label);
-        if (labNode2) {
-            labNode2.string = _GCore.XGame.dsid;
-        }
-
-        /*
-        XNet.ListenerAdd("XNetOpened",function(msg){
-            console.log("xxxxxxxxx");
-            //this.labelNetState.string="xxx";
-        });
-        */
-
-        this.myListener1 = { callback: function callback(msg, target) {
-                console.log("xxxxxxxxx");
-                //this.labNetState.string="xxx";
-
-                var labelNode = target.node.getChildByName('labNetState');
-                if (labelNode) {
-                    var label = labelNode.getComponent(cc.Label);
-                    if (label) {
-                        label.fontSize = 24;
-                        //labelNode.color = btnTitleColor;
-
-                        label.string = "connected";
-                    }
-                }
-            }, target: this };
-
-        _Network.XNet.ListenerAdd(_Opcodes.xx_opcodes.XC_NET_CONNECTED, this.myListener1);
-        //XNet.ListenerAdd("XNetOpened",{callback:this.myListener1,target:this});
-        // this.labNetState.string=XGame.dsid;
-    },
-
-    // called every frame
-    update: function update(dt) {},
-
-    connect: function connect() {
-        console.log("click connect");
-        _Network.XNet.connect();
-    }
-
-});
+exports.XSession = XSession;
 
 cc._RF.pop();
